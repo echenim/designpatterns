@@ -1,4 +1,4 @@
-package bookstores
+package bookstore
 
 type Authors struct {
 	ID         int    `json:"id"`
