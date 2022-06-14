@@ -1,7 +1,7 @@
 package builders
 
 import (
-	models "github.com/echenim/designpatterns/common/models"
+	models "github.com/echenim/patterns/common/models"
 )
 
 type BooksBuilder struct {
