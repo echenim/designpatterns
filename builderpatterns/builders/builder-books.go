@@ -1,7 +1,7 @@
 package builders
 
 import (
-	"github.com/echenim/designpatterns/common/models/bookstores"
+	models "github.com/echenim/designpatterns/common/models"
 )
 
 type BooksBuilder struct {
@@ -21,6 +21,6 @@ func NewBooksBuilder() *BooksBuilder {
 	return &BooksBuilder{}
 }
 
-func (b *BooksBuilder) Build() (Books, error) {
-	return Books{}, nil
+func (b *BooksBuilder) Build() (models.Books, error) {
+	return models.Books{}, nil
 }
