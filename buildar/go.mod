@@ -1,3 +1,3 @@
-module github.com/echenim/dwsignpatterns/builderpatterns
+module github.com/echenim/patterns/buildar
 
 go 1.18
