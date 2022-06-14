@@ -1,9 +1,8 @@
 package builders
 
 import (
-	"fmt"
-
 	models "github.com/echenim/patterns/common/models/bookstore"
+	"github.com/echenim/patterns/utils/errors"
 )
 
 type BooksBuilder struct {
@@ -60,9 +59,29 @@ func (b *BooksBuilder) SetCondition(condition string) {
 }
 
 func (b *BooksBuilder) Build() (models.Books, error) {
+	logs := errors.ErrorBuilder{}
 	if b.Title == "" {
-		return models.Books{}, fmt.Errorf("")
+		logs.Affixed("Title is required")
 	}
+	if b.ISBN == "" {
+		logs.Affixed("ISBN is required")
+	}
+	if b.Type == "" {
+		logs.Affixed("Type is required")
+	}
+	if b.PublicationYear == 0 {
+		logs.Affixed("Publication Year is required")
+	}
+	if b.Price == 0.0 {
+		logs.Affixed("Price is required")
+	}
+	if b.Price > 96 {
+		logs.Affixed("Price of book is too expensive, please do not buy")
+	}
+	if b.Condition == "" {
+		logs.Affixed("Condition is required")
+	}
+	er := logs.Print()
 	return models.Books{
 		ID:              b.ID,
 		AuthorID:        b.AuthorID,
@@ -74,5 +93,5 @@ func (b *BooksBuilder) Build() (models.Books, error) {
 		PublicationYear: b.PublicationYear,
 		Price:           b.Price,
 		Condition:       b.Condition,
-	}, nil
+	}, er
 }
