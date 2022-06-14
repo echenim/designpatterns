@@ -1,4 +1,4 @@
-package bookstores
+package bookstore
 
 type OrderItem struct {
 	ID       int     `json:"id"`

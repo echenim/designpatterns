@@ -1,4 +1,4 @@
-package bookstores
+package bookstore
 
 import "time"
 
